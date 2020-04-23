@@ -1,4 +1,210 @@
-!function(e){function i(i){for(var n,o,l=i[0],r=i[1],a=0,s=[];a<l.length;a++)o=l[a],t[o]&&s.push(t[o][0]),t[o]=0;for(n in r)Object.prototype.hasOwnProperty.call(r,n)&&(e[n]=r[n]);for(d&&d(i);s.length;)s.shift()()}var n={},t={0:0};function o(i){if(n[i])return n[i].exports;var t=n[i]={i:i,l:!1,exports:{}};return e[i].call(t.exports,t,t.exports,o),t.l=!0,t.exports}o.e=function(e){var i=[],n=t[e];if(0!==n)if(n)i.push(n[2]);else{var l=new Promise(function(i,o){n=t[e]=[i,o]});i.push(n[2]=l);var r,a=document.createElement("script");a.charset="utf-8",a.timeout=120,o.nc&&a.setAttribute("nonce",o.nc),a.src=function(e){return o.p+""+({1:"vendors~videojs",2:"videojs"}[e]||e)+".js"}(e),r=function(i){a.onerror=a.onload=null,clearTimeout(d);var n=t[e];if(0!==n){if(n){var o=i&&("load"===i.type?"missing":i.type),l=i&&i.target&&i.target.src,r=new Error("Loading chunk "+e+" failed.\n("+o+": "+l+")");r.type=o,r.request=l,n[1](r)}t[e]=void 0}};var d=setTimeout(function(){r({type:"timeout",target:a})},12e4);a.onerror=a.onload=r,document.head.appendChild(a)}return Promise.all(i)},o.m=e,o.c=n,o.d=function(e,i,n){o.o(e,i)||Object.defineProperty(e,i,{enumerable:!0,get:n})},o.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},o.t=function(e,i){if(1&i&&(e=o(e)),8&i)return e;if(4&i&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(o.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&i&&"string"!=typeof e)for(var t in e)o.d(n,t,function(i){return e[i]}.bind(null,t));return n},o.n=function(e){var i=e&&e.__esModule?function(){return e.default}:function(){return e};return o.d(i,"a",i),i},o.o=function(e,i){return Object.prototype.hasOwnProperty.call(e,i)},o.p="/js/",o.oe=function(e){throw console.error(e),e};var l=window.webpackJsonp=window.webpackJsonp||[],r=l.push.bind(l);l.push=i,l=l.slice();for(var a=0;a<l.length;a++)i(l[a]);var d=r;o(o.s=0)}([function(e,i,n){
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	function webpackJsonpCallback(data) {
+/******/ 		var chunkIds = data[0];
+/******/ 		var moreModules = data[1];
+/******/
+/******/
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
+/******/
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 	};
+/******/
+/******/
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// Promise = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		"main": 0
+/******/ 	};
+/******/
+/******/
+/******/
+/******/ 	// script path function
+/******/ 	function jsonpScriptSrc(chunkId) {
+/******/ 		return __webpack_require__.p + "" + ({"vendors~videojs~videojs-vr":"vendors~videojs~videojs-vr","vendors~videojs":"vendors~videojs","videojs":"videojs","vendors~videojs-vr":"vendors~videojs-vr","videojs-vr":"videojs-vr"}[chunkId]||chunkId) + ".js"
+/******/ 	}
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
+/******/ 		var promises = [];
+/******/
+/******/
+/******/ 		// JSONP chunk loading for javascript
+/******/
+/******/ 		var installedChunkData = installedChunks[chunkId];
+/******/ 		if(installedChunkData !== 0) { // 0 means "already installed".
+/******/
+/******/ 			// a Promise means "currently loading".
+/******/ 			if(installedChunkData) {
+/******/ 				promises.push(installedChunkData[2]);
+/******/ 			} else {
+/******/ 				// setup Promise in chunk cache
+/******/ 				var promise = new Promise(function(resolve, reject) {
+/******/ 					installedChunkData = installedChunks[chunkId] = [resolve, reject];
+/******/ 				});
+/******/ 				promises.push(installedChunkData[2] = promise);
+/******/
+/******/ 				// start chunk loading
+/******/ 				var script = document.createElement('script');
+/******/ 				var onScriptComplete;
+/******/
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.src = jsonpScriptSrc(chunkId);
+/******/
+/******/ 				onScriptComplete = function (event) {
+/******/ 					// avoid mem leaks in IE.
+/******/ 					script.onerror = script.onload = null;
+/******/ 					clearTimeout(timeout);
+/******/ 					var chunk = installedChunks[chunkId];
+/******/ 					if(chunk !== 0) {
+/******/ 						if(chunk) {
+/******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 							var realSrc = event && event.target && event.target.src;
+/******/ 							var error = new Error('Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')');
+/******/ 							error.type = errorType;
+/******/ 							error.request = realSrc;
+/******/ 							chunk[1](error);
+/******/ 						}
+/******/ 						installedChunks[chunkId] = undefined;
+/******/ 					}
+/******/ 				};
+/******/ 				var timeout = setTimeout(function(){
+/******/ 					onScriptComplete({ type: 'timeout', target: script });
+/******/ 				}, 120000);
+/******/ 				script.onerror = script.onload = onScriptComplete;
+/******/ 				document.head.appendChild(script);
+/******/ 			}
+/******/ 		}
+/******/ 		return Promise.all(promises);
+/******/ 	};
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/js/";
+/******/
+/******/ 	// on error function for async loading
+/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
+/******/
+/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	jsonpArray.push = webpackJsonpCallback;
+/******/ 	jsonpArray = jsonpArray.slice();
+/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/viewer.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/viewer.js":
+/*!***********************!*\
+  !*** ./src/viewer.js ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
 /*
  * @copyright 2018 Christoph Wurst <christoph@winzerhof-wurst.at>
  *
@@ -19,5 +225,186 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-n.nc=btoa(OC.requestToken),n.p=OC.filePath("files_videoplayer","","js/");var t=null,o={UI:{show:function(){var e=document.createElement("source");e.src=escapeHTML(o.location).replace("&amp;","&"),o.mime&&(e.type=escapeHTML(o.mime));var i=document.createElement("video");if(i.id="my_video_1",i.classList.add("video-js"),i.classList.add("vjs-fill"),i.classList.add("vjs-big-play-centered"),i.controls=!0,i.preload="auto",i.width="100%",i.height="100%",i.poster=OC.filePath("files_videoplayer","","img")+"/poster.png",i.setAttribute("data-setup",'{"techOrder": ["html5"]}'),i.appendChild(e),null===o.inline){var n=document.createElement("div");n.id="videoplayer_overlay";var l=document.createElement("div");l.id="videoplayer_outer_container";var r=document.createElement("div");r.id="videoplayer_container";var a=document.createElement("div");a.id="videoplayer",r.appendChild(a),l.appendChild(r),n.appendChild(l),a.appendChild(i),document.body.appendChild(n),n.addEventListener("click",function(e){e.target===this&&o.hidePlayer()}),setTimeout(function(){n.className="show"},0)}else{var d=document.createElement("div");d.id="videoplayer_view",d.appendChild(i),o.inline.appendChild(d)}t("my_video_1",{fill:!0}).ready(function(){if(o.player=this,null===o.inline){var e=document.createElement("a");e.className="icon-view-close",e.id="box-close",e.href="#",e.addEventListener("click",function(){o.hidePlayer()}),document.getElementById("my_video_1").appendChild(e)}null===document.getElementById("body-public")&&o.player.play()})},hide:function(){var e=document.getElementById("videoplayer_overlay");e.className="",setTimeout(function(){e.parentElement.removeChild(e)},500)}},mime:null,file:null,location:null,player:null,inline:null,mimeTypes:["video/mp4","video/x-m4v","video/webm","video/x-flv","video/ogg","video/quicktime","video/x-matroska"],mimeTypeAliasses:{"video/x-matroska":"video/webm"},onView:function(e,i){o.file=e,o.dir=i.dir,o.location=i.fileList.getDownloadUrl(e,o.dir),o.mime=i.$file.attr("data-mime"),o.mimeTypeAliasses.hasOwnProperty(o.mime)&&(o.mime=o.mimeTypeAliasses[o.mime]),o.showPlayer()},onViewInline:function(e,i,n){o.location=i,o.mime=n,o.mimeTypeAliasses.hasOwnProperty(o.mime)&&(o.mime=o.mimeTypeAliasses[o.mime]),o.inline=e,o.showPlayer()},showPlayer:function(){Promise.all([n.e(1),n.e(2)]).then(n.bind(null,3)).then(function(e){t=e.default,Promise.all([Promise.all([n.e(1),n.e(2)]).then(n.t.bind(null,1,7)),Promise.all([n.e(1),n.e(2)]).then(n.t.bind(null,2,7))]).then(function(){o.UI.show()})})},hidePlayer:function(){null!==o.player&&!1!==o.player&&null===o.inline&&(o.player.dispose(),o.player=!1,o.UI.hide())},log:function(e){console.log(e)}};document.addEventListener("DOMContentLoaded",function(){if(document.addEventListener("keyup",function(e){(void 0!==e.key&&"Escape"===e.key||void 0!==e.keyCode&&27===e.keyCode)&&o.hidePlayer()}),OCA&&OCA.Files&&OCA.Files.fileActions&&!OCA.Viewer)for(var e=0;e<o.mimeTypes.length;++e){var i=o.mimeTypes[e];OCA.Files.fileActions.register(i,"View",OC.PERMISSION_READ,"",o.onView),OCA.Files.fileActions.setDefault(i,"View"),i===n&&(isSupportedMimetype=!0)}if(document.getElementById("body-public")&&document.getElementById("imgframe")){var n=document.getElementById("mimetype").value;for(e=0;e<o.mimeTypes.length;++e)if(o.mimeTypes[e]===n){var t=window.location.href.split("?")[0]+"/download";o.onViewInline(document.getElementById("imgframe"),t,n);break}}})}]);
+__webpack_require__.nc = btoa(OC.requestToken);
+__webpack_require__.p = OC.filePath('files_videoplayer', '', 'js/');
+var videojs = null;
+var videoViewer = {
+  UI: {
+    show: function show() {
+      var source = document.createElement('source');
+      source.src = escapeHTML(videoViewer.location).replace('&amp;', '&');
+
+      if (videoViewer.mime) {
+        source.type = escapeHTML(videoViewer.mime);
+      }
+
+      var playerView = document.createElement('video');
+      playerView.id = 'my_video_1';
+      playerView.classList.add('video-js');
+      playerView.classList.add('vjs-fill');
+      playerView.classList.add('vjs-big-play-centered');
+      playerView.controls = true;
+      playerView.preload = "auto";
+      playerView.width = "100%";
+      playerView.height = "100%";
+      playerView.poster = OC.filePath('files_videoplayer', '', 'img') + '/poster.png';
+      playerView.setAttribute('data-setup', '{"techOrder": ["html5"]}');
+      playerView.appendChild(source);
+
+      if (videoViewer.inline === null) {
+        var overlay = document.createElement('div');
+        overlay.id = 'videoplayer_overlay';
+        var outer_container = document.createElement('div');
+        outer_container.id = 'videoplayer_outer_container';
+        var container = document.createElement('div');
+        container.id = 'videoplayer_container';
+        var player = document.createElement('div');
+        player.id = 'videoplayer';
+        container.appendChild(player);
+        outer_container.appendChild(container);
+        overlay.appendChild(outer_container);
+        player.appendChild(playerView);
+        document.body.appendChild(overlay); // close when clicking on the overlay
+
+        overlay.addEventListener('click', function (e) {
+          if (e.target === this) {
+            videoViewer.hidePlayer();
+          }
+        });
+        setTimeout(function () {
+          overlay.className = 'show';
+        }, 0);
+      } else {
+        var wrapper = document.createElement('div');
+        wrapper.id = 'videoplayer_view';
+        wrapper.appendChild(playerView);
+        videoViewer.inline.appendChild(wrapper);
+      } // initialize player
+
+
+      videojs("my_video_1", {
+        fill: true
+      }).ready(function () {
+        videoViewer.player = this;
+        videoViewer.player.vr({
+          forceCardboard: true,
+          debug: true,
+          projection: '180'
+        });
+
+        if (videoViewer.inline === null) {
+          // append close button to video element
+          var closeButton = document.createElement('a');
+          closeButton.className = 'icon-view-close';
+          closeButton.id = 'box-close';
+          closeButton.href = '#';
+          closeButton.addEventListener('click', function () {
+            videoViewer.hidePlayer();
+          });
+          document.getElementById('my_video_1').appendChild(closeButton);
+        } // autoplay
+
+
+        if (document.getElementById('body-public') === null) {
+          videoViewer.player.play();
+        }
+      });
+    },
+    hide: function hide() {
+      var overlay = document.getElementById('videoplayer_overlay');
+      overlay.className = '';
+      setTimeout(function () {
+        overlay.parentElement.removeChild(overlay);
+      }, 500);
+    }
+  },
+  mime: null,
+  file: null,
+  location: null,
+  player: null,
+  inline: null,
+  mimeTypes: ['video/mp4', 'video/x-m4v', 'video/webm', 'video/x-flv', 'video/ogg', 'video/quicktime', 'video/x-matroska'],
+  mimeTypeAliasses: {
+    'video/x-matroska': 'video/webm' // mkv support for Chrome. webm uses the same container format
+
+  },
+  onView: function onView(file, data) {
+    videoViewer.file = file;
+    videoViewer.dir = data.dir;
+    videoViewer.location = data.fileList.getDownloadUrl(file, videoViewer.dir);
+    videoViewer.mime = data.$file.attr('data-mime');
+
+    if (videoViewer.mimeTypeAliasses.hasOwnProperty(videoViewer.mime)) {
+      videoViewer.mime = videoViewer.mimeTypeAliasses[videoViewer.mime];
+    }
+
+    videoViewer.showPlayer();
+  },
+  onViewInline: function onViewInline(element, file, mime) {
+    videoViewer.location = file;
+    videoViewer.mime = mime;
+
+    if (videoViewer.mimeTypeAliasses.hasOwnProperty(videoViewer.mime)) {
+      videoViewer.mime = videoViewer.mimeTypeAliasses[videoViewer.mime];
+    }
+
+    videoViewer.inline = element;
+    videoViewer.showPlayer();
+  },
+  showPlayer: function showPlayer() {
+    Promise.all(/*! import() | videojs */[__webpack_require__.e("vendors~videojs~videojs-vr"), __webpack_require__.e("vendors~videojs"), __webpack_require__.e("videojs")]).then(__webpack_require__.bind(null, /*! video.js */ "./node_modules/video.js/dist/video.es.js")).then(function (_videojs) {
+      videojs = _videojs.default;
+      Promise.all([Promise.all(/*! import() | videojs */[__webpack_require__.e("vendors~videojs~videojs-vr"), __webpack_require__.e("vendors~videojs"), __webpack_require__.e("videojs")]).then(__webpack_require__.t.bind(null, /*! ../css/style.css */ "./css/style.css", 7)), Promise.all(/*! import() | videojs */[__webpack_require__.e("vendors~videojs~videojs-vr"), __webpack_require__.e("vendors~videojs"), __webpack_require__.e("videojs")]).then(__webpack_require__.t.bind(null, /*! style-loader!css-loader!video.js/dist/video-js.css */ "./node_modules/style-loader/index.js!./node_modules/css-loader/dist/cjs.js!./node_modules/video.js/dist/video-js.css", 7)), Promise.all(/*! import() | videojs-vr */[__webpack_require__.e("vendors~videojs~videojs-vr"), __webpack_require__.e("vendors~videojs-vr"), __webpack_require__.e("videojs-vr")]).then(__webpack_require__.t.bind(null, /*! videojs-vr */ "./node_modules/videojs-vr/dist/videojs-vr.min.js", 7))]).then(function () {
+        videoViewer.UI.show();
+      });
+    });
+  },
+  hidePlayer: function hidePlayer() {
+    if (videoViewer.player !== null && videoViewer.player !== false && videoViewer.inline === null) {
+      videoViewer.player.dispose();
+      videoViewer.player = false;
+      videoViewer.UI.hide();
+    }
+  },
+  log: function log(message) {
+    console.log(message);
+  }
+};
+document.addEventListener('DOMContentLoaded', function () {
+  // add event to ESC key
+  document.addEventListener('keyup', function (e) {
+    if (e.key !== undefined && e.key === 'Escape' || e.keyCode !== undefined && e.keyCode === 27) {
+      videoViewer.hidePlayer();
+    }
+  });
+
+  if (OCA && OCA.Files && OCA.Files.fileActions && !OCA.Viewer) {
+    for (var i = 0; i < videoViewer.mimeTypes.length; ++i) {
+      var mime = videoViewer.mimeTypes[i];
+      OCA.Files.fileActions.register(mime, 'View', OC.PERMISSION_READ, '', videoViewer.onView);
+      OCA.Files.fileActions.setDefault(mime, 'View');
+
+      if (mime === mimetype) {
+        isSupportedMimetype = true;
+      }
+    }
+  } // Public page magic
+
+
+  if (document.getElementById('body-public') && document.getElementById('imgframe')) {
+    var mimetype = document.getElementById('mimetype').value;
+
+    for (var i = 0; i < videoViewer.mimeTypes.length; ++i) {
+      if (videoViewer.mimeTypes[i] === mimetype) {
+        var videoUrl = window.location.href.split('?')[0] + '/download';
+        videoViewer.onViewInline(document.getElementById('imgframe'), videoUrl, mimetype);
+        break;
+      }
+    }
+  }
+});
+
+/***/ })
+
+/******/ });
 //# sourceMappingURL=main.js.map

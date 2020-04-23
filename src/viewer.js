@@ -87,6 +87,7 @@ var videoViewer = {
 				fill: true,
 			}).ready(function () {
 				videoViewer.player = this;
+                videoViewer.player.vr({forceCardboard: true, debug: true, projection: '180'});
 				if (videoViewer.inline === null) {
 					// append close button to video element
 					var closeButton = document.createElement('a');
@@ -154,7 +155,8 @@ var videoViewer = {
 			videojs = _videojs.default;
 			Promise.all([
 				import(/* webpackChunkName: "videojs" */ '../css/style.css'),
-				import(/* webpackChunkName: "videojs" */'!style-loader!css-loader!video.js/dist/video-js.css')
+				import(/* webpackChunkName: "videojs" */'!style-loader!css-loader!video.js/dist/video-js.css'),
+                import(/* webpackChunkName: "videojs-vr" */ 'videojs-vr')
 			]).then(() => {
 				videoViewer.UI.show();
 			});

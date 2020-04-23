@@ -35,6 +35,9 @@ module.exports = {
 		]
 	},
 	resolve: {
+        alias: {
+            'videojs-vr': __dirname + '/../node_modules/videojs-vr/dist/videojs-vr.min.js' /* fixes https://github.com/videojs/videojs-vr/issues/188 */
+        },
 		extensions: ['*', '.js']
 	}
 };
